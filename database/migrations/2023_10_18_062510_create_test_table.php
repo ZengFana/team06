@@ -16,7 +16,6 @@ class CreateTestTable extends Migration
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            
         });
     }
 
