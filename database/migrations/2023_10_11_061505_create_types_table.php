@@ -14,15 +14,16 @@ class CreateTypesTable extends Migration
     public function up()
     {
         Schema::create('types', function (Blueprint $table) {
-            $table->id();
-            $table->string('car_sample');
-            $table->string('car_modle');
-            $table->string('type');
-            $table->string('power_type');
-            $table->integer('price')->unsigned();
-            $table->string('origin');
-            $table->integer('car_door')->unsigned();
-            $table->integer('exhaust_volume')->unsigned();
+            $table->id()->comment('編號(主編)');
+            $table->string('car_sample')->comment('車型');
+            $table->tinyInteger('bid')->unsigned()->comment('品牌');
+            $table->string('car_modle')->comment('車款');
+            $table->string('type')->comment('型號');
+            $table->string('power_type')->comment('種類');
+            $table->integer('price')->unsigned()->comment('價格');
+            $table->string('origin')->comment('產地');
+            $table->integer('car_door')->unsigned()->comment('車門')->nullable();
+            $table->integer('exhaust_volume')->unsigned()->nullable()->comment('排氣量');
             $table->timestamps();
         });
     }

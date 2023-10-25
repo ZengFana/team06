@@ -14,12 +14,12 @@ class CreateBrandsTable extends Migration
     public function up()
     {
         Schema::create('brands', function (Blueprint $table) {
-            $table->id();
-            $table->string('brands');
-            $table->string('headquarter');
-            $table->string('area');
-            $table->tinyInteger('yera')->unsigned();
-            $table->string('html');
+            $table->id()->comment('編號(主編)');
+            $table->string('brands')->comment('品牌');
+            $table->string('headquarter')->comment('總部');
+            $table->string('area')->comment('行政區域');
+            $table->tinyInteger('yera')->unsigned()->comment('成立時間');
+            $table->string('html')->comment('官方網站');
             $table->timestamps();
         });
     }
