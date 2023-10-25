@@ -16,7 +16,8 @@ class CreateTypesTable extends Migration
         Schema::create('types', function (Blueprint $table) {
             $table->id()->comment('編號(主編)');
             $table->string('car_sample')->comment('車型');
-            $table->tinyInteger('bid')->unsigned()->comment('品牌');
+            $table->foreignId('bid')->unsigned()->comment('品牌(外部建)');
+            $table->foreign('bid')->references('id')->on('brands')->onDelete('cascade');
             $table->string('car_modle')->comment('車款');
             $table->string('type')->comment('型號');
             $table->string('power_type')->comment('種類');
