@@ -18,7 +18,7 @@ class CreateBrandsTable extends Migration
             $table->string('brands')->comment('品牌');
             $table->string('headquarter')->comment('總部');
             $table->string('area')->comment('行政區域');
-            $table->tinyInteger('yera')->unsigned()->comment('成立時間');
+            $table->integer('year')->unsigned()->comment('成立時間');
             $table->string('html')->comment('官方網站');
             $table->timestamps();
         });
