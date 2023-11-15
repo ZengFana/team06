@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BrandsController;
+use App\Http\Controllers\TypesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
+*/
+Route::get('brands',[BrandsController::class,'index'])->name('brands.index');
+Route::get('types',[TypesController::class,'index'])->name('types.index');
