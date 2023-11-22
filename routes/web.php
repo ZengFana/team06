@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\TypesController;
+use Illuminate\Queue\RedisQueue;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +20,9 @@ use App\Http\Controllers\TypesController;
     return view('welcome');
 });
 */
+Route::get('/',function () {
+    return redirect('brands');
+});
+
 Route::get('brands',[BrandsController::class,'index'])->name('brands.index');
 Route::get('types',[TypesController::class,'index'])->name('types.index');
