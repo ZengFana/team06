@@ -16,7 +16,8 @@ class TypesController extends Controller
     public function index()
     {
         //
-        return type::all()->toArray();
+        $bbb = Type::all()->toArray();
+        return view('types.index')->with('types',$bbb);
 
     }
 
