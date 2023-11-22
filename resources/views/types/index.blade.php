@@ -1,9 +1,9 @@
 <html>
     <head>
-        <title>列出所有車型</title>
+        <title>列出所有品牌</title>
     </head>
     <body>
-        <h1>列出所有車型</h1>
+        <h1>列出所有品牌</h1>
         @for($i=0;$i<count($types);$i++)
         {{$types[$i]['car_sample']}}</br>
         {{$types[$i]['bid']}}</br>
