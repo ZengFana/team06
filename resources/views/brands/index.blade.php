@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>列出所有品牌</title>
+    </head>
+    <body>
+        <h1>列出所有品牌</h1>
+        @for($i=0;$i<count($brands);$i++)
+        {{$brands[$i]['brands']}}</br>
+        {{$brands[$i]['headquarter']}}</br>
+        {{$brands[$i]['area']}}</br>
+        {{$brands[$i]['year']}}</br>
+        {{$brands[$i]['html']}}</br></br>
+        @endfor
+    </body>
+</html>
