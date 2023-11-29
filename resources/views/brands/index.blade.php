@@ -12,6 +12,9 @@
                 <th>行政區域</th>
                 <th>成立時間</th>
                 <th>官方網址</th>
+                <th>操作1</th>
+                <th>操作2</th>
+                <th>操作3</th>
             </tr>
         @for($i=0;$i<count($brands);$i++)
         <tr>            

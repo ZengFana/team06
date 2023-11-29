@@ -16,6 +16,9 @@
                 <th>產地</th>
                 <th>車門</th>
                 <th>排氣量</th>
+                <th>操作1</th>
+                <th>操作2</th>
+                <th>操作3</th>                
             </tr>
         @for($i=0;$i<count($types);$i++)
         <tr>
