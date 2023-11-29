@@ -21,5 +21,6 @@ class Type extends Model
         'power_type',
         'price',
         'origin',
+        'exhaust_volume',
     ];
 }
