@@ -1,8 +1,8 @@
-<html>
-    <head>
-        <title>列出所有品牌</title>
-    </head>
-    <body>
+@extends('app')
+
+@section('title','汽車資料庫管理-列出所有品牌')
+
+@section('car_contents')
         <h1>列出所有品牌</h1>
         <table>
             <tr>
@@ -31,5 +31,4 @@
         
         @endfor
         </table>
-    </body>
-</html>
+ @endsection

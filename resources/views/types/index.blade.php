@@ -1,9 +1,9 @@
-<html>
-    <head>
-        <title>列出所有車型</title>
-    </head>
-    <body>
-        <h1>列出所有車型</h1>
+@extends('app')
+
+@section('title','汽車資料庫管理-列出所有型號')
+
+@section('car_contents')
+        <h1>列出所有型號</h1>
         <table>
             <tr>
                 <th>編號</th>
@@ -38,5 +38,4 @@
         </tr>
         @endfor
         </table>
-    </body>
-</html>
+@endsection
