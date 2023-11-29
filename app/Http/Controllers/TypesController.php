@@ -50,6 +50,7 @@ class TypesController extends Controller
      */
     public function show($id)
     {
+        return Type::findOFaii($id)->toArray();
         //
     }
 
@@ -61,6 +62,7 @@ class TypesController extends Controller
      */
     public function edit($id)
     {
+        return Type::findOFaii($id)->toArray();
         //
     }
 

@@ -49,6 +49,7 @@ class BrandsController extends Controller
      */
     public function show($id)
     {
+        return Brand::findOFaii($id)->toArray();
         //
     }
 
@@ -60,6 +61,7 @@ class BrandsController extends Controller
      */
     public function edit($id)
     {
+        return Brand::findOFaii($id)->toArray();
         //
     }
 
