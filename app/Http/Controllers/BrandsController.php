@@ -60,6 +60,7 @@ class BrandsController extends Controller
      */
     public function edit($id)
     {
+        return Brand::findOrFail($id)->toArray();
         //
     }
 

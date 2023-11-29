@@ -25,4 +25,7 @@ Route::get('/',function () {
 });
 
 Route::get('brands',[BrandsController::class,'index'])->name('brands.index');
+Route::get('brands/{id}',[BrandsController::class,'show'])->where('id','[0-9]+')->name('brands.show');
+Route::get('brands/{id}/edit',[BrandsController::class,'edit'])->where('id','[0-9]+')->name('brands.edit');
+
 Route::get('types',[TypesController::class,'index'])->name('types.index');
