@@ -49,6 +49,7 @@ class BrandsController extends Controller
      */
     public function show($id)
     {
+        return Brand::findOrFail($id)->toArray();
         //
     }
 
