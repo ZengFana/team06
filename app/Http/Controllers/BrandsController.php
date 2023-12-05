@@ -16,6 +16,7 @@ class BrandsController extends Controller
     {
         //
         return Brand::all()->toArray();
+        
     }
 
     /**
