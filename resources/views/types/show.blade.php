@@ -1,8 +1,11 @@
 @extends('app')
 
-@section('title','汽車資料庫管理-列出所選車型')
+@section('title','顯示特定車型')
+
+@section('car_theme','您所選取的型號資料')
 
 @section('car_contents')
+<h1>顯示單一車型</h1>
 編號：{{$types->id}}<br/>
 車型：{{$types->car_sample}}<br/>
 品牌：{{$types->brand->brands}}<br/>
