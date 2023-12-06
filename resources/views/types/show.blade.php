@@ -5,7 +5,7 @@
 @section('car_contents')
 編號：{{$types->id}}<br/>
 車型：{{$types->car_sample}}<br/>
-品牌1：{{$types->brand->brands}}<br/>
+品牌：{{$types->brand->brands}}<br/>
 車款：{{$types->car_modle}}<br/>
 型號：{{$types->type}}<br/>
 種類：{{$types->power_type}}<br/>
