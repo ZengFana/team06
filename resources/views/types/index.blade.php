@@ -20,7 +20,7 @@
                 <th>操作2</th>
                 <th>操作3</th>                
             </tr>
-        @for($i=0;$i<count($types);$i++)
+        @for($i=0;$i<count($types);$i++)sss
         <tr>
             <td>{{$types[$i]['id']}}</td>
             <td>{{$types[$i]['car_sample']}}</td>
