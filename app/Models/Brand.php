@@ -18,4 +18,9 @@ class Brand extends Model
     public function types(){
                 return $this->hasMany('App\Models\type','bid');
             }
+            public function delete()
+                {
+                    $this->types()->delete();
+        return parent::delete();
+    }
 }   

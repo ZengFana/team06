@@ -88,6 +88,9 @@ class TypesController extends Controller
      */
     public function destroy($id)
     {
+        $type = Type::findOrFail($id);
+        $type->delete();
+        return redirect('types');
         //
     }
 }

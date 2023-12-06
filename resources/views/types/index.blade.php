@@ -33,7 +33,11 @@
             <td>{{$type->exhaust_volume}}</td>
             <td><a href="{{route('types.show',['id'=>$type->id])}}">顯示</a></td>
             <td><a href="{{route('types.edit',['id'=>$type->id])}}">修改</a></td>
-            <td>刪除</td>
+            <td><form action="{{url('/types/delete',['id'=> $type->id])}}"method="post">
+            <input class="btn btn-default" type="submit" value="刪除"/>
+            @method('delete')
+            @csrf
+        </form></td>
         </tr>
         @endforeach
 
