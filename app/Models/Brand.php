@@ -15,4 +15,7 @@ class Brand extends Model
         'year',
         'html',
     ];
+    public function types(){
+                return $this->hasMany('App\Models\type','bid');
+            }
 }   

@@ -14,11 +14,12 @@ class BrandsController extends Controller
      */
     public function index()
     {
-        $bb =Brand::all()->toArray();
-        return view('brands.index')->with('brands',$bb);
+        $brands = Brand::all();
+        return view('brands.index')->with('brands',$brands);
+     }
         //
         //return Brand::all()->toArray();
-    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -49,7 +50,9 @@ class BrandsController extends Controller
      */
     public function show($id)
     {
-        return Brand::findOrFail($id)->toArray();
+        $brand = Brand::findOrFail($id);
+        $types = $brand->types;
+        return view('brands.show',['brand'=>$brand,'types'=>$types]);
         //
     }
 
