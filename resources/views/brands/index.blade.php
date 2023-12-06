@@ -2,6 +2,8 @@
 
 @section('title','汽車資料庫管理-列出所有品牌')
 
+@section('car_theme')
+
 @section('car_contents')
         <h1>列出所有品牌</h1>
         <table>
@@ -16,18 +18,22 @@
                 <th>操作2</th>
                 <th>操作3</th>
             </tr>
-            @foreach ($brands as $brand)
-         <tr>
-             <td>{{$brand->id}}</td>
-             <td>{{$brand->brands}}</td>
-             <td>{{$brand->headquarter}}</td>
-             <td>{{$brand->area}}</td>
-             <td>{{$brand->year}}</td>
-             <td>{{$brand->html}}</td>
-         <td><a href="{{route('brands.show',['id'=>$brand->id])}}">顯示</a></td>
-         <td><a href="{{route('brands.edit',['id'=>$brand->id])}}">修改</a></td>
-         <td>刪除</td>
-                 @endforeach
-
-</table>
-@endsection
+        @foreach ($brands as $brand)
+        <tr>
+            <td>{{$brand->id}}</td>
+            <td>{{$brand->brands}}</td>
+            <td>{{$brand->headquarter}}</td>
+            <td>{{$brand->area}}</td>
+            <td>{{$brand->year}}</td>
+            <td>{{$brand->html}}</td>
+        <td><a href="{{route('brands.show',['id'=>$brand->id])}}">顯示</a></td>
+        <td><a href="{{route('brands.edit',['id'=>$brand->id])}}">修改</a></td>
+        <td><form action="{{url('/brands/delete',['id'=> $brand->id])}}"method="post">
+            <input class="btn btn-default" type="submit" value="刪除"/>
+            @method('delete')
+            @csrf
+        </form></td>
+        </tr>
+        @endforeach
+        </table>
+ @endsection

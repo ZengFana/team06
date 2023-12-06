@@ -16,6 +16,11 @@ class Brand extends Model
         'html',
     ];
     public function types(){
-    return $this->hasMany('App\Models\type','bid');
+        return $this->hasMany('App\Models\type','bid');
+    }
+    public function delete()
+    {
+        $this->types()->delete();
+        return parent::delete();
     }
 }   

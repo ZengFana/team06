@@ -15,10 +15,9 @@ class BrandsController extends Controller
     public function index()
     {
         //
+        //return Brand::all()->toArray();
         $brands = Brand::all();
         return view('brands.index')->with('brands',$brands);
-        //$aaa = Brand::all()->toArray();
-        //return view('brands.index')->with('brands',$aaa);
     }
 
     /**
@@ -51,10 +50,8 @@ class BrandsController extends Controller
     public function show($id)
     {
         $brand = Brand::findOrFail($id);
-+        $types = $brand->types;
-         return view('brands.show',['brand'=>$brand,'types'=>$types]);
-         //
-        //return Brand::findOFaii($id)->toArray();
+        $types = $brand->types;
+        return view('brands.show',['brand'=>$brand,'types'=>$types]);
         //
     }
 
@@ -66,7 +63,7 @@ class BrandsController extends Controller
      */
     public function edit($id)
     {
-        return Brand::findOFaii($id)->toArray();
+        return Brand::findOrFail($id)->toArray();
         //
     }
 
@@ -91,5 +88,8 @@ class BrandsController extends Controller
     public function destroy($id)
     {
         //
+        $brand = Brand::findOrFail($id);
+        $brand->delete();
+        return redirect('brands');
     }
 }
