@@ -8,7 +8,7 @@
             <tr>
                 <th>編號</th>
                 <th>車型</th>
-                <th>品牌編號</th>
+                <th>品牌</th>
                 <th>車款</th>
                 <th>型號</th>
                 <th>種類</th>
@@ -20,22 +20,22 @@
                 <th>操作2</th>
                 <th>操作3</th>                
             </tr>
-        @for($i=0;$i<count($types);$i++)sss
+        @foreach ($types as $type)
         <tr>
-            <td>{{$types[$i]['id']}}</td>
-            <td>{{$types[$i]['car_sample']}}</td>
-            <td>{{$types[$i]['bid']}}</td>
-            <td>{{$types[$i]['car_modle']}}</td>
-            <td>{{$types[$i]['type']}}</td>
-            <td>{{$types[$i]['power_type']}}</td>
-            <td>{{$types[$i]['price']}}</td>
-            <td>{{$types[$i]['origin']}}</td>
-            <td>{{$types[$i]['car_door']}}</td>
-            <td>{{$types[$i]['exhaust_volume']}}</td>
-            <td><a href="{{route('types.show',['id'=>$types[$i]['id']])}}">顯示</a></td>
-            <td><a href="{{route('types.edit',['id'=>$types[$i]['id']])}}">修改</a></td>
+            <td>{{$type->id}}</td>
+            <td>{{$type->car_sample}}</td>
+            <td>{{$type->brand->brands}}</td>
+            <td>{{$type->car_modle}}</td>
+            <td>{{$type->type}}</td>
+            <td>{{$type->power_type}}</td>
+            <td>{{$type->price}}</td>
+            <td>{{$type->origin}}</td>
+            <td>{{$type->car_door}}</td>
+            <td>{{$type->exhaust_volume}}</td>
+            <td><a href="{{route('types.show',['id'=>$type->id])}}">顯示</a></td>
+            <td><a href="{{route('types.edit',['id'=>$type->id])}}">修改</a></td>
             <td>刪除</td>
         </tr>
-        @endfor
+        @endforeach
         </table>
 @endsection
