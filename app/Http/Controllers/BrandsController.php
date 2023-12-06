@@ -15,9 +15,10 @@ class BrandsController extends Controller
     public function index()
     {
         //
-        
-        $aaa = Brand::all()->toArray();
-        return view('brands.index')->with('brands',$aaa);
+        $brands = Brand::all();
+        return view('brands.index')->with('brands',$brands);
+        //$aaa = Brand::all()->toArray();
+        //return view('brands.index')->with('brands',$aaa);
     }
 
     /**
@@ -49,7 +50,11 @@ class BrandsController extends Controller
      */
     public function show($id)
     {
-        return Brand::findOFaii($id)->toArray();
+        $brand = Brand::findOrFail($id);
++        $types = $brand->types;
+         return view('brands.show',['brand'=>$brand,'types'=>$types]);
+         //
+        //return Brand::findOFaii($id)->toArray();
         //
     }
 

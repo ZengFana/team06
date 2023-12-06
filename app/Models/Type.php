@@ -23,4 +23,7 @@ class Type extends Model
         'origin',
         'exhaust_volume',
     ];
+    public function brand() {
+    return $this->belongsTo('App\Models\Brand','bid','id');
+    }
 }

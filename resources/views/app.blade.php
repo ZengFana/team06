@@ -419,6 +419,9 @@
                     @include('header')
                 </div>
                 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+                    @yield('car_theme')
+                </div>
+                <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
                     @yield('car_contents')
                 </div>
             </div>
