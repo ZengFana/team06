@@ -14,12 +14,11 @@ class BrandsController extends Controller
      */
     public function index()
     {
-        $brands = Brand::all();
-        return view('brands.index')->with('brands',$brands);
-     }
         //
         //return Brand::all()->toArray();
-    
+        $brands = Brand::all();
+        return view('brands.index')->with('brands',$brands);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -53,9 +52,6 @@ class BrandsController extends Controller
             'year'=>$year,
             'html'=>$html]);
 
-            $brand->save();
-        
-
         return redirect('brands');
         //
     }
@@ -85,6 +81,7 @@ class BrandsController extends Controller
         //return Brand::findOrFail($id)->toArray();
         $brand = Brand::findOrFail($id);
         return view('brands.edit',['brand'=>$brand]);
+        //
     }
 
     /**
@@ -103,7 +100,8 @@ class BrandsController extends Controller
         $brand->area = $request->input('area');
         $brand->year = $request->input('year');
         $brand->html = $request->input('html');
-        
+        $brand->save();
+
         return redirect('brands');
         //
     }
