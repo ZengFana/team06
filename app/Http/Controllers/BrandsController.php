@@ -103,7 +103,7 @@ class BrandsController extends Controller
         $brand->html = $request->input('html');
         
         return redirect('brands');
-        //
+        //123
     }
 
     /**
