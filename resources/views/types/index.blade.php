@@ -8,7 +8,7 @@
             <a href="{{ route('types.create') }} ">新增型號</a>
             <a href="{{ route('types.index') }} ">所有型號</a>  
         </div>
-        <table>
+        <table> 
             <tr>
                 <th>編號</th>
                 <th>車型</th>
