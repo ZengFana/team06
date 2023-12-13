@@ -39,6 +39,21 @@ class BrandsController extends Controller
      */
     public function store(Request $request)
     {
+        $brands = $request->input('brands');
+        $headquarter = $request->input('headquarter');
+        $area = $request->input('area');
+        $year = $request->input('year');
+        $html = $request->input('html');
+        
+        Brand::create([
+            'brands' => $brands,
+            'headquarter' => $headquarter,
+            'area' => $area,
+            'year' => $year,
+            'html' => $html
+        ]);
+
+        return redirect('brands');
         //
     }
 
@@ -79,6 +94,15 @@ class BrandsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $brand = Brand::findOrFail($id);
+
+        $brand->brands = $request->input('brands');
+        $brand->headquarter = $request->input('headquarter');
+        $brand->area = $request->input('area');
+        $brand->year = $request->input('year');
+        $brand->html = $request->input('html');
+        
+        return redirect('brands');
         //
     }
 

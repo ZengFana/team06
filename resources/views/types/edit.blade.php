@@ -6,6 +6,6 @@
 
 @section('car_contents')
     {!! Form::model($type,['method'=>'PATCH','action'=>['\App\Http\Controllers\TypesController@update',$type->id]])!!}
-    @include('types.form',['submitButtonText'=>"編輯車型資料"])
+    @include('types.form',['submitButtonText'=>"更新車型資料"])
     {!! Form::close() !!}
 @endsection
