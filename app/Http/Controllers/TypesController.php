@@ -16,10 +16,10 @@ class TypesController extends Controller
      */
     public function index()
     {
-        $types = Type::all();
-        return view('types.index')->with('types',$types);
         //
         //return type::all()->toArray();
+        $types = Type::all();
+        return view('types.index')->with('types',$types);
 
     }
 
@@ -33,7 +33,7 @@ class TypesController extends Controller
         //return view('types.create');
         $brands = Brand::orderBy('brands.id', 'asc')->pluck('brands.brands', 'brands.id');
         return view('types.create', ['brands' =>$brands, 'brandSelected' => null]);
-        
+        //
     }
 
     /**
@@ -45,26 +45,26 @@ class TypesController extends Controller
     public function store(Request $request)
     {
         $car_sample = $request->input('car_sample');
-                $bid = $request->input('bid');
-                $car_modle = $request->input('car_modle');
-                $type = $request->input('type');
-                $power_type = $request->input('power_type');
-                $price = $request->input('price');
-                $origin = $request->input('origin');
-                $car_door = $request->input('car_door');
-                $exhaust_volume = $request->input('exhaust_volume');
-        
-                $type = Type::create([
-                    'car_sample'=>$car_sample,
-                    'bid'=>$bid,
-                    'car_modle'=>$car_modle,
-                    'type'=>$type,
-                    'power_type'=>$power_type,
-                    'price'=>$price,
-                    'origin'=>$origin,
-                    'car_door'=>$car_door,
-                    'exhaust_volume'=>$exhaust_volume]);
-                return redirect('types');
+        $bid = $request->input('bid');
+        $car_modle = $request->input('car_modle');
+        $type = $request->input('type');
+        $power_type = $request->input('power_type');
+        $price = $request->input('price');
+        $origin = $request->input('origin');
+        $car_door = $request->input('car_door');
+        $exhaust_volume = $request->input('exhaust_volume');
+
+        $type = Type::create([
+            'car_sample'=>$car_sample,
+            'bid'=>$bid,
+            'car_modle'=>$car_modle,
+            'type'=>$type,
+            'power_type'=>$power_type,
+            'price'=>$price,
+            'origin'=>$origin,
+            'car_door'=>$car_door,
+            'exhaust_volume'=>$exhaust_volume]);
+        return redirect('types');
         //
     }
 
@@ -78,6 +78,7 @@ class TypesController extends Controller
     {
         $types = Type::findOrFail($id);
         return view('types.show')->with('types',$types);
+
         //
     }
 
