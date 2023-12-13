@@ -44,6 +44,27 @@ class TypesController extends Controller
      */
     public function store(Request $request)
     {
+        $car_sample = $request->input('car_sample');
+                $bid = $request->input('bid');
+                $car_modle = $request->input('car_modle');
+                $type = $request->input('type');
+                $power_type = $request->input('power_type');
+                $price = $request->input('price');
+                $origin = $request->input('origin');
+                $car_door = $request->input('car_door');
+                $exhaust_volume = $request->input('exhaust_volume');
+        
+                $type = Type::create([
+                    'car_sample'=>$car_sample,
+                    'bid'=>$bid,
+                    'car_modle'=>$car_modle,
+                    'type'=>$type,
+                    'power_type'=>$power_type,
+                    'price'=>$price,
+                    'origin'=>$origin,
+                    'car_door'=>$car_door,
+                    'exhaust_volume'=>$exhaust_volume]);
+                return redirect('types');
         //
     }
 
@@ -68,7 +89,10 @@ class TypesController extends Controller
      */
     public function edit($id)
     {
-        return Type::findOrFail($id)->toArray();
+        $type = Type::findOrFail($id);
+        $brands = Brand::orderBy('brands.brands','asc')->pluck('brands.brands','brands.id');
+        $selected_tags = $type->brand->id;
+        return view('types.edit',['type'=>$type,'brands'=>$brands,'brandSelected'=>$selected_tags]);
         //
     }
 
@@ -81,6 +105,21 @@ class TypesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $type = Type::findOrFail($id);
+
+        $type->car_sample = $request->input('car_sample');
+        $type->bid = $request->input('bid');
+        $type->car_modle = $request->input('car_modle');
+        $type->type = $request->input('type');
+        $type->power_type = $request->input('power_type');
+        $type->price = $request->input('price');
+        $type->origin = $request->input('origin');
+        $type->car_door = $request->input('car_door');
+        $type->exhaust_volume = $request->input('exhaust_volume');
+        $type->save();
+
+
+        return redirect('types');
         //
     }
 
