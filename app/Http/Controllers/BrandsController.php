@@ -46,12 +46,11 @@ class BrandsController extends Controller
         $html = $request->input('html');
         
         Brand::create([
-            'brands' => $brands,
-            'headquarter' => $headquarter,
-            'area' => $area,
-            'year' => $year,
-            'html' => $html
-        ]);
+            'brands'=>$brands,
+            'headquarter'=>$headquarter,
+            'area'=>$area,
+            'year'=>$year,
+            'html'=>$html]);
 
         return redirect('brands');
         //
@@ -101,7 +100,8 @@ class BrandsController extends Controller
         $brand->area = $request->input('area');
         $brand->year = $request->input('year');
         $brand->html = $request->input('html');
-        
+        $brand->save();
+
         return redirect('brands');
         //
     }
