@@ -52,7 +52,7 @@ class BrandsController extends Controller
             'area'=>$area,
             'year'=>$year,
             'html'=>$html]);
-            
+
             $brand->save();
         
 
@@ -105,7 +105,7 @@ class BrandsController extends Controller
         $brand->html = $request->input('html');
         
         return redirect('brands');
-        //123
+        //
     }
 
     /**
