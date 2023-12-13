@@ -94,6 +94,15 @@ class BrandsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $brand = Brand::findOrFail($id);
+
+        $brand->brands = $request->input('brands');
+        $brand->headquarter = $request->input('headquarter');
+        $brand->area = $request->input('area');
+        $brand->year = $request->input('year');
+        $brand->html = $request->input('html');
+        
+        return redirect('brands');
         //
     }
 
