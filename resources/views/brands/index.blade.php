@@ -8,6 +8,10 @@
         <h1>
             所有品牌
         </h1>
+        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+            <a href="{{ route('brands.create') }} ">新增品牌</a>
+            <a href="{{ route('brands.index') }} ">所有品牌</a>
+        </div>
         <table>
             <tr>
                 <th>編號</th>

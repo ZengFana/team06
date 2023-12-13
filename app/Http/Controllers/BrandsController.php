@@ -28,6 +28,7 @@ class BrandsController extends Controller
      */
     public function create()
     {
+        return view('brands.create');
         //
     }
 
@@ -39,6 +40,21 @@ class BrandsController extends Controller
      */
     public function store(Request $request)
     {
+        $brands = $request->input('brands');
+        $headquarter = $request->input('headquarter');
+        $area = $request->input('area');
+        $year = $request->input('year');
+        $html = $request->input('html');
+        
+        Brand::create([
+            'brands' => $brands,
+            'headquarter' => $headquarter,
+            'area' => $area,
+            'year' => $year,
+            'html' => $html
+        ]);
+
+        return redirect('brands');
         //
     }
 
@@ -64,8 +80,9 @@ class BrandsController extends Controller
      */
     public function edit($id)
     {
-        return Brand::findOrFail($id)->toArray();
-        //
+        //return Brand::findOrFail($id)->toArray();
+        $brand = Brand::findOrFail($id);
+        return view('brands.edit',['brand'=>$brand]);
     }
 
     /**

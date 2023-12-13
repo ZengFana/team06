@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Type;
+use App\Models\Brand;
 
 class TypesController extends Controller
 {
@@ -29,7 +30,10 @@ class TypesController extends Controller
      */
     public function create()
     {
-        //
+        //return view('types.create');
+        $brands = Brand::orderBy('brands.id', 'asc')->pluck('brands.brands', 'brands.id');
+        return view('types.create', ['brands' =>$brands, 'brandSelected' => null]);
+        
     }
 
     /**
