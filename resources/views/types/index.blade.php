@@ -33,7 +33,7 @@
             <td>{{$type->power_type}}</td>
             <td>{{$type->price}}</td>
             <td>{{$type->origin}}</td>
-            <td>{{$type->car_door}}</td>
+            <td>{{$type->door}}</td>
             <td>{{$type->exhaust_volume}}</td>
             <td><a href="{{route('types.show',['id'=>$type->id])}}">顯示</a></td>
             <td><a href="{{route('types.edit',['id'=>$type->id])}}">修改</a></td>

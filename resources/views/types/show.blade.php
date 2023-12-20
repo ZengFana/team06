@@ -14,6 +14,6 @@
 種類：{{$types->power_type}}<br/>
 價格：{{$types->price}}<br/>
 產地：{{$types->origin}}<br/>
-車門：{{$types->car_door}}<br/>
+車門：{{$types->door}}<br/>
 排氣量：{{$types->exhaust_volume}}<br/>
 @endsection
