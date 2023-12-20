@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+/*use Illuminate\Http\Request;*/
 
 use App\Models\Type;
-
+use App\Models\Brand;
+use App\Http\Requests\CreateTypeRequest;
 class TypesController extends Controller
 {
     /**
@@ -16,7 +17,9 @@ class TypesController extends Controller
     public function index()
     {
         //
-        return type::all()->toArray();
+        //return type::all()->toArray();
+        $types = Type::all();
+        return view('types.index')->with('types',$types);
 
     }
 
@@ -27,6 +30,9 @@ class TypesController extends Controller
      */
     public function create()
     {
+        //return view('types.create');
+        $brands = Brand::orderBy('brands.id', 'asc')->pluck('brands.brands', 'brands.id');
+        return view('types.create', ['brands' =>$brands, 'brandSelected' => null]);
         //
     }
 
@@ -36,8 +42,29 @@ class TypesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateTypeRequest $request)
     {
+        $car_sample = $request->input('car_sample');
+        $bid = $request->input('bid');
+        $car_modle = $request->input('car_modle');
+        $type = $request->input('type');
+        $power_type = $request->input('power_type');
+        $price = $request->input('price');
+        $origin = $request->input('origin');
+        $door = $request->input('door');
+        $exhaust_volume = $request->input('exhaust_volume');
+
+        $type = Type::create([
+            'car_sample'=>$car_sample,
+            'bid'=>$bid,
+            'car_modle'=>$car_modle,
+            'type'=>$type,
+            'power_type'=>$power_type,
+            'price'=>$price,
+            'origin'=>$origin,
+            'door'=>$door,
+            'exhaust_volume'=>$exhaust_volume]);
+        return redirect('types');
         //
     }
 
@@ -49,6 +76,9 @@ class TypesController extends Controller
      */
     public function show($id)
     {
+        $types = Type::findOrFail($id);
+        return view('types.show')->with('types',$types);
+
         //
     }
 
@@ -60,6 +90,10 @@ class TypesController extends Controller
      */
     public function edit($id)
     {
+        $type = Type::findOrFail($id);
+        $brands = Brand::orderBy('brands.brands','asc')->pluck('brands.brands','brands.id');
+        $selected_tags = $type->brand->id;
+        return view('types.edit',['type'=>$type,'brands'=>$brands,'brandSelected'=>$selected_tags]);
         //
     }
 
@@ -70,8 +104,23 @@ class TypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateTypeRequest $request, $id)
     {
+        $type = Type::findOrFail($id);
+
+        $type->car_sample = $request->input('car_sample');
+        $type->bid = $request->input('bid');
+        $type->car_modle = $request->input('car_modle');
+        $type->type = $request->input('type');
+        $type->power_type = $request->input('power_type');
+        $type->price = $request->input('price');
+        $type->origin = $request->input('origin');
+        $type->door = $request->input('door');
+        $type->exhaust_volume = $request->input('exhaust_volume');
+        $type->save();
+
+
+        return redirect('types');
         //
     }
 
@@ -83,6 +132,9 @@ class TypesController extends Controller
      */
     public function destroy($id)
     {
+        $type = Type::findOrFail($id);
+        $type->delete();
+        return redirect('types');
         //
     }
 }
