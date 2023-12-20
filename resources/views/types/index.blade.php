@@ -6,9 +6,9 @@
         <h1>列出所有型號</h1>
         <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
             <a href="{{ route('types.create') }} ">新增型號</a>
-            <a href="{{ route('types.index') }} ">所有型號</a>  
+            <a href="{{ route('types.index') }} ">所有型號</a>
         </div>
-        <table> 
+        <table>
             <tr>
                 <th>編號</th>
                 <th>車型</th>
@@ -34,7 +34,7 @@
             <td>{{$type->power_type}}</td>
             <td>{{$type->price}}</td>
             <td>{{$type->origin}}</td>
-            <td>{{$type->car_door}}</td>
+            <td>{{$type->door}}</td>
             <td>{{$type->exhaust_volume}}</td>
             <td><a href="{{route('types.show',['id'=>$type->id])}}">顯示</a></td>
             <td><a href="{{route('types.edit',['id'=>$type->id])}}">修改</a></td>

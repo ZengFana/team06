@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+/*use Illuminate\Http\Request;*/
 
 use App\Models\Type;
 use App\Models\Brand;
-
+use App\Http\Requests\CreateTypeRequest;
 class TypesController extends Controller
 {
     /**
@@ -42,7 +42,7 @@ class TypesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateTypeRequest $request)
     {
         $car_sample = $request->input('car_sample');
         $bid = $request->input('bid');
@@ -51,7 +51,7 @@ class TypesController extends Controller
         $power_type = $request->input('power_type');
         $price = $request->input('price');
         $origin = $request->input('origin');
-        $car_door = $request->input('car_door');
+        $door = $request->input('door');
         $exhaust_volume = $request->input('exhaust_volume');
 
         $type = Type::create([
@@ -62,7 +62,7 @@ class TypesController extends Controller
             'power_type'=>$power_type,
             'price'=>$price,
             'origin'=>$origin,
-            'car_door'=>$car_door,
+            'door'=>$door,
             'exhaust_volume'=>$exhaust_volume]);
         return redirect('types');
         //
@@ -104,7 +104,7 @@ class TypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateTypeRequest $request, $id)
     {
         $type = Type::findOrFail($id);
 
@@ -115,7 +115,7 @@ class TypesController extends Controller
         $type->power_type = $request->input('power_type');
         $type->price = $request->input('price');
         $type->origin = $request->input('origin');
-        $type->car_door = $request->input('car_door');
+        $type->door = $request->input('door');
         $type->exhaust_volume = $request->input('exhaust_volume');
         $type->save();
 
@@ -135,6 +135,6 @@ class TypesController extends Controller
         $type = Type::findOrFail($id);
         $type->delete();
         return redirect('types');
-        ///
+        //
     }
 }

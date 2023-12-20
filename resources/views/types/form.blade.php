@@ -27,8 +27,8 @@
     {!! Form::text('origin', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('car_door', '車門：') !!}
-    {!! Form::text('car_door', null, ['class' => 'form-control']) !!}
+    {!! Form::label('door', '車門：') !!}
+    {!! Form::text('door', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('exhaust_volume', '排氣量：') !!}

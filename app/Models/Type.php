@@ -21,9 +21,10 @@ class Type extends Model
         'power_type',
         'price',
         'origin',
+        'door',
         'exhaust_volume',
     ];
     public function brand() {
-    return $this->belongsTo('App\Models\Brand','bid','id');
+        return $this->belongsTo('App\Models\Brand','bid','id');
     }
 }
