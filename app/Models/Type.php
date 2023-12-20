@@ -21,6 +21,7 @@ class Type extends Model
         'power_type',
         'price',
         'origin',
+        'door',
         'exhaust_volume',
     ];
     public function brand() {

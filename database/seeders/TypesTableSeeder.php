@@ -86,7 +86,7 @@ class TypesTableSeeder extends Seeder
                 'power_type' => $power,
                 'price' => rand(10,2100),
                 'origin' => $origin, 
-                'car_door' => rand(2,7),
+                'door' => rand(2,7),
                 'created_at' => $random_datetime,
                 'updated_at' => $random_datetime
             ]);
