@@ -23,7 +23,7 @@ class CreateTypesTable extends Migration
             $table->string('power_type')->comment('種類');
             $table->integer('price')->unsigned()->comment('價格');
             $table->string('origin')->comment('產地');
-            $table->integer('car_door')->unsigned()->comment('車門')->nullable();
+            $table->integer('door')->unsigned()->nullable()->comment('車門');
             $table->integer('exhaust_volume')->unsigned()->nullable()->comment('排氣量');
             $table->timestamps();
         });
