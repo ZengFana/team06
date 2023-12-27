@@ -23,4 +23,10 @@ class Brand extends Model
         $this->types()->delete();
         return parent::delete();
     }
+    public function scopeYearold($query) {
+        return $query->where('year','<=', 1950)->orderBy('year','asc');
+    }
+    public function scopeYeyear($query) {
+        return $query->where('year','>', 1950)->orderBy('year','asc');
+    }
 }   

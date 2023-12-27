@@ -25,6 +25,8 @@ Route::get('/',function () {
 });
 
 Route::get('brands',[BrandsController::class,'index'])->name('brands.index');
+Route::get('brands/yeyear',[BrandsController::class,'yeyear'])->name('brands.yeyear');
+Route::get('brands/yearold',[BrandsController::class,'yearold'])->name('brands.yearold');
 Route::get('brands/{id}',[BrandsController::class,'show'])->where('id','[0-9]+')->name('brands.show');
 Route::get('brands/{id}/edit',[BrandsController::class,'edit'])->where('id','[0-9]+')->name('brands.edit');
 Route::delete('brands/delete/{id}',[BrandsController::class,'destroy'])->where('id','[0-9]+')->name('brands.destroy');
