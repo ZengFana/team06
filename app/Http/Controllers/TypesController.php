@@ -19,7 +19,7 @@ class TypesController extends Controller
     {
         //
         //return type::all()->toArray();
-        $types = Type::all();
+        $types = Type::paginate(25);
         $origins = Type::allOrigins()->pluck('types.origin','types.origin');
         return view('types.index',['types'=> $types,'origins'=> $origins]);
 
@@ -28,7 +28,7 @@ class TypesController extends Controller
     public function cpvolume()
     {
         //
-        $types = Type::cpvolume()->get();
+        $types = Type::cpvolume()->paginate(25);
         $origins = Type::allOrigins()->pluck('types.origin','types.origin');
         return view('types.index',['types'=> $types,'origins'=> $origins]);
 
@@ -36,7 +36,7 @@ class TypesController extends Controller
     public function origin(Request $request)
     {
         //
-        $types = Type::origin($request->input('ori'))->get();
+        $types = Type::origin($request->input('ori'))->paginate(25);
         $origins = Type::allOrigins()->pluck('types.origin','types.origin');
         return view('types.index',['types'=> $types,'origins'=> $origins]);
 

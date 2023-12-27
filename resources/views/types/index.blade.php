@@ -53,4 +53,5 @@
         </tr>
         @endforeach
         </table>
+{{ $types->links() }}
 @endsection
