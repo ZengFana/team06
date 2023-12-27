@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Models\Type;
 use App\Models\Brand;
 use App\Http\Requests\CreateTypeRequest;
+use Illuminate\Http\Request;
 class TypesController extends Controller
 {
     /**
@@ -19,7 +20,8 @@ class TypesController extends Controller
         //
         //return type::all()->toArray();
         $types = Type::all();
-        return view('types.index')->with('types',$types);
+        $origins = Type::allOrigins()->pluck('types.origin','types.origin');
+        return view('types.index',['types'=> $types,'origins'=> $origins]);
 
     }
 
@@ -27,12 +29,21 @@ class TypesController extends Controller
     {
         //
         $types = Type::cpvolume()->get();
-        return view('types.index')->with('types',$types);
+        $origins = Type::allOrigins()->pluck('types.origin','types.origin');
+        return view('types.index',['types'=> $types,'origins'=> $origins]);
+
+    }
+    public function origin(Request $request)
+    {
+        //
+        $types = Type::origin($request->input('ori'))->get();
+        $origins = Type::allOrigins()->pluck('types.origin','types.origin');
+        return view('types.index',['types'=> $types,'origins'=> $origins]);
 
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show thposorm for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
