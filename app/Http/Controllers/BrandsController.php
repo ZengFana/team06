@@ -20,6 +20,16 @@ class BrandsController extends Controller
         $brands = Brand::all();
         return view('brands.index')->with('brands',$brands);
     }
+    public function yearold()
+    {
+        $brands = Brand::yearold()->get();
+        return view('brands.index')->with('brands',$brands);
+    }
+    public function yeyear()
+    {
+        $brands = Brand::yeyear()->get();
+        return view('brands.index')->with('brands',$brands);
+    }
 
     /**
      * Show the form for creating a new resource.
