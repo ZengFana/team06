@@ -19,31 +19,31 @@ class TypesController extends Controller
     {
         //
         //return type::all()->toArray();
-        $types = Type::all();
+        $types = Type::paginate(25);
         $origins = Type::allOrigins()->pluck('types.origin','types.origin');
-        return view('types.index',['types'=> $types,'origins'=> $origins]);
+        return view('types.index',['types'=> $types,'origins'=> $origins, 'selectedOrigin'=>null]);
 
     }
 
     public function cpvolume()
     {
         //
-        $types = Type::cpvolume()->get();
+        $types = Type::cpvolume()->paginate(25);
         $origins = Type::allOrigins()->pluck('types.origin','types.origin');
-        return view('types.index',['types'=> $types,'origins'=> $origins]);
+        return view('types.index',['types'=> $types,'origins'=> $origins, 'selectedOrigin'=>null]);
 
     }
     public function origin(Request $request)
     {
         //
-        $types = Type::origin($request->input('ori'))->get();
+        $types = Type::origin($request->input('ori'))->paginate(25);
         $origins = Type::allOrigins()->pluck('types.origin','types.origin');
-        return view('types.index',['types'=> $types,'origins'=> $origins]);
+        $selectedOrigin = $request->input('ori');
+        return view('types.index',['types'=> $types,'origins'=> $origins ,'selectedOrigin'=>$selectedOrigin]);
 
     }
-
     /**
-     * Show thposorm for creating a new resource.
+     * Show thpos/orm for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
