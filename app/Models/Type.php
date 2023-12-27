@@ -28,6 +28,12 @@ class Type extends Model
         return $this->belongsTo('App\Models\Brand','bid','id');
     }
     public function scopeCpvolume($query) {
-        $query->where('price','<=', 100)->orderBy('price','asc');
+        return $query->where('price','<=', 100)->orderBy('price','asc');
+    }
+    public function scopeAllOrigins($query) {
+        return $query->select('origin')->groupBy('origin');
+    }
+    public function scopeOrigin($query, $ori) {
+        return $query->where('origin','=', $ori);
     }
 }

@@ -38,6 +38,7 @@ Route::post('brands/store', [BrandsController::class, 'store'])->where('id', '[0
 
 Route::get('types',[TypesController::class,'index'])->name('types.index');
 Route::get('types/cpvolume',[TypesController::class,'cpvolume'])->name('types.cpvolume');
+Route::post('types/origin',[TypesController::class,'origin'])->name('types.origin');
 Route::get('types/{id}',[TypesController::class,'show'])->where('id','[0-9]+')->name('types.show');
 Route::get('types/{id}/edit',[TypesController::class,'edit'])->where('id','[0-9]+')->name('types.edit');
 Route::delete('types/delete/{id}',[TypesController::class,'destroy'])->where('id','[0-9]+')->name('types.destroy');

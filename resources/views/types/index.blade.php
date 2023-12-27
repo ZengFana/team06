@@ -8,6 +8,12 @@
             <a href="{{ route('types.create') }} ">新增型號</a>
             <a href="{{ route('types.index') }} ">所有型號</a>
             <a href="{{ route('types.cpvolume') }} ">CP值高的車</a>
+            <form action="{{ url('types/origin')}}" method='POST'>
+                {!! Form::label('ori', '產地位置：') !!}
+                {!! Form::select('ori', $origins,['class'=>'form-control'])!!}
+                <input class="btn btn-default" type="submit" value="查詢" />
+                @csrf
+            </form>
         </div>
         <table>
             <tr>
