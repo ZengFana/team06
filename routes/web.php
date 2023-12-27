@@ -28,6 +28,7 @@ Route::patch('brands/update/{id}',[BrandsController::class,'update'])->where('id
 Route::post('brands/store', [BrandsController::class, 'store'])->where('id', '[0-9]+')->name('brands.store');
 
 Route::get('types',[TypesController::class,'index'])->name('types.index');
+Route::get('types/cpvolume',[TypesController::class,'cpvolume'])->name('types.cpvolume');
 Route::get('types/{id}',[TypesController::class,'show'])->where('id','[0-9]+')->name('types.show');
 Route::get('types/{id}/edit',[TypesController::class,'edit'])->where('id','[0-9]+')->name('types.edit');
 Route::delete('types/delete/{id}',[TypesController::class,'destroy'])->where('id','[0-9]+')->name('types.destroy');

@@ -23,6 +23,14 @@ class TypesController extends Controller
 
     }
 
+    public function cpvolume()
+    {
+        //
+        $types = Type::cpvolume()->get();
+        return view('types.index')->with('types',$types);
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
