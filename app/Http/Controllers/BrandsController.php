@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use illuminate\Http\Request;
 use App\Models\Brand;
-use App\Http\Requests\CreateBrandRequest;
+// use illuminate\Http\Request;
 
 class BrandsController extends Controller
 {
@@ -37,8 +38,27 @@ class BrandsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateBrandRequest $request)
+    public function store(Request $request)
     {
+        $request->validate([
+            'brands' => 'required|string|min:2|max:191',
+            'headquarter' => 'required|string|min:2|max:191',
+            'area' => 'required|string|min:2|max:191',
+            'year' => 'required|numeric',
+            'html' => 'required|string|min:2|max:255'
+        ],[
+            "brands.required" => "品牌 為必填",
+            "brands.min" => "品牌 至少需要2個字",
+            "headquarter.required" => "總部 為必填",
+            "headquarter.min" => "總部 至少需要1個字",
+            "area.required" => "行政區域 為必填",
+            "area.min" => "行政區域 至少需要1個字",
+            "year.required" => "成立時間 為必填",
+            "year.numeric" => "成立時間 必須為數值",
+            "html.required" => "官方網址 為必填",
+            "html.min" => "官方網址 至少需要2個字"
+        ]);
+
         $brands = $request->input('brands');
         $headquarter = $request->input('headquarter');
         $area = $request->input('area');
@@ -91,8 +111,26 @@ class BrandsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CreateBrandRequest $request, $id)
+    public function update(Request $request, $id)
     {
+        $request->validate([
+            'brands' => 'required|string|min:2|max:191',
+            'headquarter' => 'required|string|min:2|max:191',
+            'area' => 'required|string|min:2|max:191',
+            'year' => 'required|numeric',
+            'html' => 'required|string|min:2|max:255'
+        ],[
+            "brands.required" => "品牌 為必填",
+            "brands.min" => "品牌 至少需要2個字",
+            "headquarter.required" => "總部 為必填",
+            "headquarter.min" => "總部 至少需要1個字",
+            "area.required" => "行政區域 為必填",
+            "area.min" => "行政區域 至少需要1個字",
+            "year.required" => "成立時間 為必填",
+            "year.numeric" => "成立時間 必須為數值",
+            "html.required" => "官方網址 為必填",
+            "html.min" => "官方網址 至少需要2個字"
+        ]);
         $brand = Brand::findOrFail($id);
 
         $brand->brands = $request->input('brands');

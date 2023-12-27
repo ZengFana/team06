@@ -27,4 +27,7 @@ class Type extends Model
     public function brand() {
         return $this->belongsTo('App\Models\Brand','bid','id');
     }
+    public function scopeCpvolume($query) {
+        $query->where('price','<=', 100)->orderBy('price','asc');
+    }
 }
