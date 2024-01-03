@@ -109,6 +109,8 @@ class TypesController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
+        
         $type = Type::findOrFail($id);
         $brands = Brand::orderBy('brands.brands','asc')->pluck('brands.brands','brands.id');
         $selected_tags = $type->brand->id;
