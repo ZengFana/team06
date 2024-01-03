@@ -38,3 +38,6 @@ Route::delete('types/delete/{id}',[TypesController::class,'destroy'])->where('id
 Route::get('types/create',[TypesController::class,'create'])->name('types.create');
 Route::patch('types/update/{id}',[TypesController::class,'update'])->where('id','[0-9]+')->name('types.update');
 Route::post('types/store', [TypesController::class, 'store'])->where('id', '[0-9]+')->name('types.store');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
