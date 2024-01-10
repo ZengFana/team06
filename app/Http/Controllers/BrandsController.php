@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateBrandRequest;
 use illuminate\Http\Request;
 use App\Models\Brand;
 // use illuminate\Http\Request;
@@ -49,9 +50,9 @@ class BrandsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateBrandRequest $request)
     {
-        $request->validate([
+        /* $request->validate([
             'brands' => 'required|string|min:2|max:191',
             'headquarter' => 'required|string|min:2|max:191',
             'area' => 'required|string|min:2|max:191',
@@ -68,7 +69,7 @@ class BrandsController extends Controller
             "year.numeric" => "成立時間 必須為數值",
             "html.required" => "官方網址 為必填",
             "html.min" => "官方網址 至少需要2個字"
-        ]);
+        ]); */
 
         $brands = $request->input('brands');
         $headquarter = $request->input('headquarter');
@@ -124,9 +125,9 @@ class BrandsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateBrandRequest $request, $id)
     {
-        $request->validate([
+        /* $request->validate([
             'brands' => 'required|string|min:2|max:191',
             'headquarter' => 'required|string|min:2|max:191',
             'area' => 'required|string|min:2|max:191',
@@ -143,7 +144,7 @@ class BrandsController extends Controller
             "year.numeric" => "成立時間 必須為數值",
             "html.required" => "官方網址 為必填",
             "html.min" => "官方網址 至少需要2個字"
-        ]);
+        ]); */
         $brand = Brand::findOrFail($id);
 
         $brand->brands = $request->input('brands');
